@@ -16,7 +16,5 @@ if(abs(dz) > 30) {
 
 if(side != other.side) {
 	request_damage_type = other.type;
-	
-	request_damage      = true;
 	request_damage_dir  = other.dir;
 }

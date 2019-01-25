@@ -1,4 +1,4 @@
-// move
+// process to move
 var vx = argument0;
 var vy = argument1;
 
@@ -34,29 +34,40 @@ default:
 }
 
 x = median(32, x, room_width-32);
-var z_min = -64 - 384;
-var z_max = 64  - 384;
+var z_min = -64 - BASE_Z_TO_Y;
+var z_max = 64  - BASE_Z_TO_Y;
 z = median(z_min, z, z_max);
 depth = z - 100;
 
+
 // ===========================================
-if(request_damage) {
-	state = eState.Damage;
-	timer = 0;
-	request_damage = false;
-	if(request_damage_dir == eDir.Left) {
-		dir = eDir.Right;
-	}
-	else {
-		dir = eDir.Left;
-	}
-	var launch = scrAttack_get(request_damage_type, eAttackProperties.LaunchOfPower);
-	if(launch > 0) {
-		state = eState.Launch;
-		vspeed = -7 * launch * 0.1;
-		hspeed = 3 * launch * 0.1;
-		if(dir == eDir.Right) {
-			hspeed *= -1;
-		}
+// process to damage
+if(request_damage_type == eAttackType.None) {
+	// not any damage.
+	return;
+}
+
+// start to damage.
+state = eState.Damage;
+timer = 0;
+if(request_damage_dir == eDir.Left) {
+	dir = eDir.Right;
+}
+else {
+	dir = eDir.Left;
+}
+
+// check to launch
+var launch = scrAttack_get(request_damage_type, eAttackProperties.LaunchOfPower);
+if(launch > 0) {
+	// start to launch
+	state = eState.Launch;
+	vspeed = -7 * launch * 0.1;
+	hspeed = 3 * launch * 0.1;
+	if(dir == eDir.Right) {
+		hspeed *= -1;
 	}
 }
+
+// end of process to damage.
+request_damage_type = eAttackType.None;

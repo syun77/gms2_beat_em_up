@@ -1,5 +1,5 @@
-/// @description Insert description here
-// You can write your code in this editor
+#macro BASE_Z_TO_Y (384)
+
 enum eState {
 	Standby,
 	Punch,
@@ -32,7 +32,4 @@ y     = 0;
 side  = eSide.Player;
 
 request_damage_type = eAttackType.None;
-request_damage      = false;
 request_damage_dir  = eDir.Left;
-request_knockdown   = false;
-request_launch      = false;
