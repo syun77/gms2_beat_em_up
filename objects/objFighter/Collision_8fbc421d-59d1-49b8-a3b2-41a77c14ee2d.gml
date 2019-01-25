@@ -19,6 +19,4 @@ if(side != other.side) {
 	
 	request_damage      = true;
 	request_damage_dir  = other.dir;
-	request_knockdown   = other.is_knockdown;
-	request_launch      = other.is_launch;
 }

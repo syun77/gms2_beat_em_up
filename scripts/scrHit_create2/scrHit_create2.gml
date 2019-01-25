@@ -17,8 +17,6 @@ with(inst) {
 		// Flip collision mask.
 		inst.image_xscale = -1;
 	}
-	inst.is_knockdown = false;
-	inst.is_launch    = false;
 }
 
 return inst;

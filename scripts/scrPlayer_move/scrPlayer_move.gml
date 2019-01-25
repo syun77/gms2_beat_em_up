@@ -60,19 +60,3 @@ if(request_damage) {
 		}
 	}
 }
-if(request_knockdown) {
-	state = eState.Knockdown;
-	timer = 0;
-	request_knockdown = false;
-}
-if(request_launch) {
-	state = eState.Launch;
-	timer = 0;
-	request_launch = false;
-	hspeed = 3;
-	if(dir == eDir.Right) {
-		hspeed *= -1;
-	}
-	vspeed = -7;
-}
-
