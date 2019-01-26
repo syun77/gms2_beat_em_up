@@ -13,6 +13,7 @@ with(inst) {
 	inst.side = eSide.Player;
 	inst.alarm[0] = scrAttack_get(type, eAttackProperties.ActiveFrame);
 	inst.dir = dir;
+	inst.hit_any = false;
 	if(dir == eDir.Left) {
 		// Flip collision mask.
 		inst.image_xscale = -1;

@@ -4,3 +4,4 @@
 event_inherited();
 
 side = eSide.Player;
+hp = 100;

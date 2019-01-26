@@ -47,6 +47,9 @@ if(request_damage_type == eAttackType.None) {
 	return;
 }
 
+var type = request_damage_type;
+request_damage_type = eAttackType.None;
+
 // start to damage.
 state = eState.Damage;
 timer = 0;
@@ -57,8 +60,15 @@ else {
 	dir = eDir.Left;
 }
 
+// damage
+var damage = scrAttack_get(type, eAttackProperties.Power);
+hp -= damage;
+if(hp < 0) {
+	hp = 0;
+}
+
 // check to launch
-var launch = scrAttack_get(request_damage_type, eAttackProperties.LaunchOfPower);
+var launch = scrAttack_get(type, eAttackProperties.LaunchOfPower);
 if(launch > 0) {
 	// start to launch
 	state = eState.Launch;
@@ -68,6 +78,3 @@ if(launch > 0) {
 		hspeed *= -1;
 	}
 }
-
-// end of process to damage.
-request_damage_type = eAttackType.None;

@@ -2,5 +2,6 @@
 // You can write your code in this editor
 event_inherited();
 
-side = eSide.Enemy;
-dir  = eDir.Left;
+side   = eSide.Enemy;
+dir    = eDir.Left;
+hp     = 50;

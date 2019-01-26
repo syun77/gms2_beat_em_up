@@ -15,6 +15,9 @@ if(abs(dz) > 30) {
 }
 
 if(side != other.side) {
-	request_damage_type = other.type;
-	request_damage_dir  = other.dir;
+	if(already_hit_idx != other.id) {
+		already_hit_idx = other.id;
+		request_damage_type = other.type;
+		request_damage_dir  = other.dir;
+	}
 }
