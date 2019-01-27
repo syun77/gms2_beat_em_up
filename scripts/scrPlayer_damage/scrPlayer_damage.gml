@@ -26,6 +26,11 @@ if(hp < 0) {
 
 // check to launch
 var launch = scrAttack_get(type, eAttackProperties.LaunchOfPower);
+if(launch == 0 && hp <= 0) {
+	// Dead.
+	launch = 5;
+}
+
 if(launch > 0) {
 	// start to launch
 	state = eState.Launch;
