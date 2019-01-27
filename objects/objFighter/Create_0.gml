@@ -41,10 +41,10 @@ z     = -y;
 y     = 0;
 side  = eSide.Player;
 
-hit_obj_idx = 0;
+hit_obj_idx = noone;
 
 // already check hit objects.
-already_hit_idx = 0;
+already_hit_idx = noone;
 
 // request damage.
 request_damage_type = eAttackType.None;
