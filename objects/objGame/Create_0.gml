@@ -27,3 +27,8 @@ global.attack_data[eAttackType.Length, eAttackProperties.Length] = noone;
 scrAttack_add(eAttackType.Punch,    sprPunch,     3, 2, 10, 10,  0);
 scrAttack_add(eAttackType.Kick,     sprKick,      5, 5, 20, 30,  5);
 scrAttack_add(eAttackType.Uppercut, sprUppercut, 10, 3, 20, 30, 10);
+
+cnt_left  = 0;
+cnt_right = 0;
+
+debug_info_draw = true;

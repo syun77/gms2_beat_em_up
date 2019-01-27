@@ -6,14 +6,23 @@ enum eDistance {
 	Furthest,
 };
 
+enum eAI {
+	Standby,
+	CloseTo,
+	GoAround,
+	Dash,
+};
+
 event_inherited();
 
 side   = eSide.Enemy;
 dir    = eDir.Left;
-hp     = 50;
+hp     = 100;
 
 cnt    = 0;
 
 to_distance = eDistance.Normal;
+ai_state = eAI.Standby;
+ai_timer = 0;
 
 debug_draw_info = true;

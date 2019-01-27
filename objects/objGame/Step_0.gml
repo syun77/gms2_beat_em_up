@@ -7,6 +7,23 @@ if(instance_exists(objPlayer) == false) {
 var px = objPlayer.x;
 var pz = objPlayer.z;
 
+var prev_left = cnt_left;
+var prev_right = cnt_right;
+cnt_left = 0;
+cnt_right = 0;
+with(objEnemy) {
+	var dx = px - x;
+	if(dx > 0) {
+		other.cnt_left++;
+	}
+	if(dx < 0) {
+		other.cnt_right++;
+	}
+}
+if(prev_left == cnt_left and prev_right == cnt_right) {
+	return;
+}
+
 var furthest = noone;
 var distance = 0;
 with(objEnemy) {
