@@ -4,6 +4,7 @@ var vx = 0;
 var vy = 0;
 
 scrPlayer_move(vx, vy);
+scrPlayer_damage();
 
 var is_punch = false;
 var is_kick  = false;

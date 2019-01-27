@@ -22,6 +22,7 @@ else if(keyboard_check(vk_down)) {
 }
 
 scrPlayer_move(vx, vy);
+scrPlayer_damage();
 
 var is_punch = keyboard_check_pressed(ord("Z"));
 var is_kick  = keyboard_check_pressed(ord("X"));

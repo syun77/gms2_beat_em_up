@@ -1,6 +1,10 @@
 // base y position.
 #macro BASE_Z_TO_Y (384)
 
+// timer
+#macro KNOCK_DOWN_TIME (60)
+#macro KNOCK_DOWN_RECOVERY_TIME (40)
+
 // already check hit objects
 #macro MAX_HIT_OBJECTS (16)
 
@@ -14,6 +18,8 @@ enum eState {
 	Knockdown,
 	Launch,
 	Throw,
+	
+	Dead,
 };
 
 enum eDir {

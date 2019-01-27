@@ -1,7 +1,3 @@
-/// @description Insert description here
-// You can write your code in this editor
-/// @description Insert description here
-// You can write your code in this editor
 var image_no = 0;
 var ofs_x = 0;
 switch(state) {
@@ -32,15 +28,23 @@ case eState.Damage:
 	
 case eState.Knockdown:
 	image_no = 6;
-	if(timer > 40) {
+	if(timer > KNOCK_DOWN_RECOVERY_TIME) {
 		ofs_x = random_range(-3, 3);
 	}
 	break;
 	
 case eState.Launch:
 case eState.Throw:
+case eState.Dead:
 	image_no = 6;
 	break;
+}
+
+if(state == eState.Dead) {
+	if(timer%4 < 2) {
+		// blink
+		return;
+	}
 }
 
 var px = x + ofs_x;
