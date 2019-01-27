@@ -3,6 +3,7 @@
 if(instance_exists(objPlayer) == false) {
 	return;
 }
+
 var px = objPlayer.x;
 var pz = objPlayer.z;
 
@@ -15,17 +16,24 @@ var dz = pz - z;
 
 var vx = 0;
 var vy = 0;
-if(dx > near_distance) {
-	vx = move_hspeed;
+
+if(to_distance == eDistance.Furthest) {
+	// Go around.
 }
-else if(dx < -near_distance) {
-	vx = -move_hspeed;
-}
-if(dz > 1) {
-	vy = move_vspeed;
-}
-else if(dz < -1) {
-	vy = -move_vspeed;
+else {
+	// Close to player.
+	if(dx > near_distance) {
+		vx = move_hspeed;
+	}
+	else if(dx < -near_distance) {
+		vx = -move_hspeed;
+	}
+	if(dz > 1) {
+		vy = move_vspeed;
+	}
+	else if(dz < -1) {
+		vy = -move_vspeed;
+	}
 }
 
 scrPlayer_move(vx, vy);
