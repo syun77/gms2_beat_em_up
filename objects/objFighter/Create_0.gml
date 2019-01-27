@@ -1,5 +1,8 @@
 // base y position.
 #macro BASE_Z_TO_Y (384)
+#macro RANGE_POSITION_Z (64)
+#macro MIN_Z (-RANGE_POSITION_Z - BASE_Z_TO_Y)
+#macro MAX_Z ( RANGE_POSITION_Z - BASE_Z_TO_Y)
 
 // timer
 #macro KNOCK_DOWN_TIME (60)

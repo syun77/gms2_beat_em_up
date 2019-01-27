@@ -34,7 +34,5 @@ default:
 }
 
 x = median(32, x, room_width-32);
-var z_min = -64 - BASE_Z_TO_Y;
-var z_max = 64  - BASE_Z_TO_Y;
-z = median(z_min, z, z_max);
+z = median(MIN_Z, z, MAX_Z);
 depth = z - 100;

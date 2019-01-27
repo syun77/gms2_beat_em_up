@@ -19,6 +19,31 @@ var vy = 0;
 
 if(to_distance == eDistance.Furthest) {
 	// Go around.
+	var cnt_left = 0;
+	with(objEnemy) {
+		var dx2 = px - x;
+		if(dx2 > 0) {
+			cnt_left++;
+		}
+	}
+	if(cnt_left == 0) {
+		if(abs(dz) < 32) {
+			vy = move_vspeed;
+		}
+		if(dz == 0) {
+			if(pz == MAX_Z) {
+				// Bottom.
+				vy *= -1;
+			}
+			else {
+				// Upper.
+				vy *= 1;
+			}
+		}
+		else {
+			vy *= -1 * sign(dz);
+		}
+	}
 }
 else {
 	// Close to player.
@@ -28,10 +53,10 @@ else {
 	else if(dx < -near_distance) {
 		vx = -move_hspeed;
 	}
-	if(dz > 1) {
+	if(dz > 16) {
 		vy = move_vspeed;
 	}
-	else if(dz < -1) {
+	else if(dz < -16) {
 		vy = -move_vspeed;
 	}
 }
