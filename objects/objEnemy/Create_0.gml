@@ -5,3 +5,5 @@ event_inherited();
 side   = eSide.Enemy;
 dir    = eDir.Left;
 hp     = 50;
+
+cnt    = 0;

@@ -5,3 +5,6 @@ event_inherited();
 
 side = eSide.Player;
 hp = 100;
+
+// Debugging...
+debug_draw_hit_idx = false;

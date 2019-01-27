@@ -44,7 +44,10 @@ side  = eSide.Player;
 hit_obj_idx = noone;
 
 // already check hit objects.
-already_hit_idx = noone;
+already_hit_idx[MAX_HIT_OBJECTS] = noone;
+for(var i = 0; i < MAX_HIT_OBJECTS; i++) {
+	already_hit_idx[i] = noone;
+}
 
 // request damage.
 request_damage_type = eAttackType.None;

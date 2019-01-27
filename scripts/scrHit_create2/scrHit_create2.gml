@@ -12,7 +12,7 @@ with(inst) {
 	inst.type = type;
 	inst.z = pz;
 	inst.sprite_index = scrAttack_get(type, eAttackProperties.HitSprite);
-	inst.side = eSide.Player;
+	inst.side = side;
 	inst.alarm[0] = scrAttack_get(type, eAttackProperties.ActiveFrame);
 	inst.dir = dir;
 	inst.hit_any = false;

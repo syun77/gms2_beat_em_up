@@ -14,10 +14,27 @@ if(abs(dz) > 30) {
 	return;
 }
 
-if(side != other.side) {
-	if(already_hit_idx != other.id) {
-		already_hit_idx = other.id;
-		request_damage_type = other.type;
-		request_damage_dir  = other.dir;
+if(side == other.side) {
+	// self
+	return;
+}
+
+var is_find = false;
+for(var i = 0; i < MAX_HIT_OBJECTS; i++) {
+	var idx = already_hit_idx[i];
+	if(idx == other.id) {
+		is_find = true;
+		break;
+	}
+}
+
+if(is_find == false) {
+	for(var i = 0; i < MAX_HIT_OBJECTS; i++) {
+		if(already_hit_idx[i] == noone) {
+			already_hit_idx[i] = other.id;
+			request_damage_type = other.type;
+			request_damage_dir  = other.dir;
+			break;
+		}
 	}
 }

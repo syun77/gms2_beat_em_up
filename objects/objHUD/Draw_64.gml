@@ -1,4 +1,4 @@
-if(player_id > 0)
+if(player_id != noone)
 {
 	var hp = player_id.hp;
 	var x1 = 8;
@@ -12,7 +12,7 @@ if(player_id > 0)
 	draw_text(x1, y1, string(hp));
 }
 
-if(enemy_id > 0)
+if(enemy_id != noone)
 {
 	var hp = enemy_id.hp;
 	var x1 = 8;
