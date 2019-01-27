@@ -41,6 +41,8 @@ z     = -y;
 y     = 0;
 side  = eSide.Player;
 
+hit_obj_idx = 0;
+
 // already check hit objects.
 already_hit_idx = 0;
 

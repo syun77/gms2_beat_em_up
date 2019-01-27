@@ -40,3 +40,8 @@ if(launch > 0) {
 		hspeed *= -1;
 	}
 }
+
+if(side == eSide.Enemy) {
+	// Display HUD.
+	objHUD.enemy_id = id;
+}

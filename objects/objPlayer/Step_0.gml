@@ -1,5 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
+objHUD.player_id = id;
 
 var vx = 0;
 var vy = 0;
