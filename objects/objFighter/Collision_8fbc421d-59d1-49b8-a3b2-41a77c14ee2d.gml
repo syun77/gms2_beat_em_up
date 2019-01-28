@@ -9,7 +9,7 @@ case eState.Throw:
 }
 
 var dz = other.z - z;
-if(abs(dz) > 16) {
+if(abs(dz) > HIT_RANGE_Z) {
 	// no hit.
 	return;
 }

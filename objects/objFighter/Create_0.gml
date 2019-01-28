@@ -4,6 +4,8 @@
 #macro MIN_Z (-RANGE_POSITION_Z - BASE_Z_TO_Y)
 #macro MAX_Z ( RANGE_POSITION_Z - BASE_Z_TO_Y)
 
+#macro HIT_RANGE_Z (16)
+
 // timer
 #macro KNOCK_DOWN_TIME (60)
 #macro KNOCK_DOWN_RECOVERY_TIME (40)

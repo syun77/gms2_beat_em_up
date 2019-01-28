@@ -1,5 +1,7 @@
-/// @description Insert description here
-// You can write your code in this editor
+#macro ENEMY_DASH_TIMER       (30) // Drash Frame
+#macro ENEMY_RANGE_TO_PLAYER  (32) // Distance closest to the player 
+#macro ENEMY_SHIFT_Z_DISTANCE (32)
+
 if(instance_exists(objPlayer) == false) {
 	return;
 }
@@ -9,7 +11,6 @@ var pz = objPlayer.z;
 
 var move_hspeed = 1;
 var move_vspeed = 0.5;
-var near_distance = 32;
 
 var dx = px - x;
 var dz = pz - z;
@@ -30,10 +31,12 @@ case eAI.Standby:
 	switch(to_distance) {
 	case eDistance.Nearest:
 	case eDistance.Normal:
+		// Approach to player.
 		ai_state = eAI.CloseTo;
 		break;
 
 	case eDistance.Furthest:
+		// To turn behind.
 		ai_state = eAI.GoAround;
 		break;
 	}
@@ -62,7 +65,7 @@ case eAI.GoAround:
 	}
 	
 	// move z axis.
-	if(abs(dz) < 32) {
+	if(abs(dz) < ENEMY_SHIFT_Z_DISTANCE + 8) {
 		vy = move_vspeed * 2;
 	}
 	if(dz == 0) {
@@ -79,7 +82,7 @@ case eAI.GoAround:
 		vy *= -1 * sign(dz);
 	}
 	
-	if(abs(dz) > 24) {
+	if(abs(dz) > ENEMY_SHIFT_Z_DISTANCE) {
 		// start to dash.
 		ai_state = eAI.Dash;
 		if(cnt_left == 0) {
@@ -98,17 +101,17 @@ case eAI.Dash:
 	else {
 		vx = move_hspeed * 2;
 	}
-	if(ai_timer > 30) {
+	if(ai_timer > ENEMY_DASH_TIMER) {
 		ai_state = eAI.Standby;
 	}
 	break;
 	
 case eAI.CloseTo:
 	// Close to player.
-	if(dx > near_distance) {
+	if(dx > ENEMY_RANGE_TO_PLAYER) {
 		vx = move_hspeed;
 	}
-	else if(dx < -near_distance) {
+	else if(dx < -ENEMY_RANGE_TO_PLAYER) {
 		vx = -move_hspeed;
 	}
 	else {
@@ -121,10 +124,10 @@ case eAI.CloseTo:
 		}
 	}
 	
-	if(dz > 16) {
+	if(dz > HIT_RANGE_Z) {
 		vy = move_vspeed;
 	}
-	else if(dz < -16) {
+	else if(dz < -HIT_RANGE_Z) {
 		vy = -move_vspeed;
 	}
 	ai_state = eAI.Standby;
