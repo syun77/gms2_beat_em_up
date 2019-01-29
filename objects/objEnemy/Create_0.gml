@@ -17,7 +17,7 @@ event_inherited();
 
 side   = eSide.Enemy;
 dir    = eDir.Left;
-hp     = 100;
+hp     = 50;
 
 cnt    = 0;
 

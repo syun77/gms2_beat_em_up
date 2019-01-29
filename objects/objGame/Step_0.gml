@@ -1,5 +1,26 @@
 /// @description Insert description here
 // You can write your code in this editor
+timer++;
+
+var cnt_enemy = 0;
+with(objEnemy) {
+	if(hp > 0) {
+		cnt_enemy++;
+	}
+}
+if(cnt_enemy == 0) {
+	// finish blow.
+	is_finish = true;
+	game_set_speed(15, gamespeed_fps)
+}
+if(is_finish) {
+	finish_timer++;
+	if(finish_timer > 20) {
+		is_finish = false;
+		game_set_speed(60, gamespeed_fps)
+	}
+}
+
 if(instance_exists(objPlayer) == false) {
 	return;
 }

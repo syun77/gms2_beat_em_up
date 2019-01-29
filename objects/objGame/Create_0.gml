@@ -28,7 +28,10 @@ scrAttack_add(eAttackType.Punch,    sprPunch,     3, 2, 10, 10,  0);
 scrAttack_add(eAttackType.Kick,     sprKick,      5, 5, 20, 30,  5);
 scrAttack_add(eAttackType.Uppercut, sprUppercut, 10, 3, 20, 30, 10);
 
+timer = 0;
 cnt_left  = 0;
 cnt_right = 0;
+is_finish = false;
+finish_timer = 0;
 
 debug_info_draw = true;

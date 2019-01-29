@@ -34,6 +34,9 @@ if(launch == 0 && hp <= 0) {
 if(launch > 0) {
 	// start to launch
 	state = eState.Launch;
+	if(hp <= 0) {
+		launch *= 1.5;
+	}
 	vspeed = -7 * launch * 0.1;
 	hspeed = 3 * launch * 0.1;
 	if(dir == eDir.Right) {
