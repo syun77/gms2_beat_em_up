@@ -210,6 +210,25 @@
             }
         },
         {
+            "Key": "36318642-79f7-494a-bb95-20569e4c93a1",
+            "Value": {
+                "id": "20bf81db-4597-48e6-bc68-b7291112a573",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "views\/36318642-79f7-494a-bb95-20569e4c93a1.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "48313365-b0d6-4a92-b23d-73c8e2883143",
             "Value": {
                 "id": "d325becf-5bf2-4bf2-9258-cfe34dc885ca",
@@ -495,6 +514,25 @@
             }
         },
         {
+            "Key": "a6a1e9a3-73c4-4471-9fd0-29bca7acf904",
+            "Value": {
+                "id": "9c2453b8-f624-4a13-aa7f-6a1c1cc5bef7",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "scripts\/scrAttack_init\/scrAttack_init.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "a8ab9a3f-b91e-48ba-bc37-eeb0be64d965",
             "Value": {
                 "id": "fb76d6b2-2506-43a0-be8b-ffa4a5dd79c3",
@@ -727,9 +765,10 @@
         "5f66b0d8-3490-46e8-9909-b5aeca1689f1",
         "cb9c0b9a-7941-497b-adb3-b8562b209589",
         "8141ff17-ba37-4372-8251-bbf18b9a41a8",
+        "568d0086-81a9-4b7f-8c2b-72ab914df769",
+        "a6a1e9a3-73c4-4471-9fd0-29bca7acf904",
         "48313365-b0d6-4a92-b23d-73c8e2883143",
-        "ba052876-b8db-4878-99dd-9d6cbadeea97",
-        "568d0086-81a9-4b7f-8c2b-72ab914df769"
+        "ba052876-b8db-4878-99dd-9d6cbadeea97"
     ],
     "tutorial": ""
 }
