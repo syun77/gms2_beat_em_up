@@ -14,7 +14,7 @@ enum eAttackProperties {
 	StartupFrame,  // 2: this frame is not occured a hit-box
 	ActiveFrame,   // 3: this frame to start a hit-box
 	RecoveryFrame, // 4: end of frame (you can't move) 
-	LaunchOfPower, // 5: the power to launch a fight
+	LaunchOfPower, // 5: the power for launching a fighter
 	
 	Length,
 };
@@ -22,6 +22,6 @@ enum eAttackProperties {
 global.attack_data[eAttackType.Length, eAttackProperties.Length] = noone;
 
 //            type                  0             1  2   3   4   5
-scrAttack_add(eAttackType.Punch,    sprPunch,     3, 2, 10, 10,  0);
-scrAttack_add(eAttackType.Kick,     sprKick,      5, 5, 20, 30,  5);
-scrAttack_add(eAttackType.Uppercut, sprUppercut, 10, 3, 20, 30, 10);
+scrAttack_add(eAttackType.Punch,    sprPunch,     3, 0, 10, 10,  0);
+scrAttack_add(eAttackType.Kick,     sprKick,      5, 0, 20, 30,  5);
+scrAttack_add(eAttackType.Uppercut, sprUppercut, 10, 0, 20, 30, 10);

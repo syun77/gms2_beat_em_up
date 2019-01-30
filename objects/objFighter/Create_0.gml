@@ -47,6 +47,7 @@ y     = 0;
 side  = eSide.Player;
 
 hit_obj_idx = noone;
+recovery_frame = 0;
 
 // already check hit objects.
 already_hit_idx[MAX_HIT_OBJECTS] = noone;

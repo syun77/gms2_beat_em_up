@@ -22,7 +22,7 @@ case eState.Standby:
 	break;
 	
 case eState.Punch:
-	if(timer > 15) {
+	if(timer > recovery_frame) {
 		state = eState.Standby;
 	}
 	else if(is_punch) {
@@ -32,7 +32,7 @@ case eState.Punch:
 	break;
 	
 case eState.Punch2:
-	if(timer > 15) {
+	if(timer > recovery_frame) {
 		state = eState.Standby;
 	}
 	else if(is_punch) {
@@ -42,12 +42,12 @@ case eState.Punch2:
 	break;
 	
 case eState.Uppercut:
-	if(timer > 60) {
+	if(timer > recovery_frame) {
 		state = eState.Standby;
 	}
 	
 case eState.Kick:
-	if(timer > 30) {
+	if(timer > recovery_frame) {
 		state = eState.Standby;
 	}
 	break;
@@ -94,5 +94,9 @@ if(state != prev_state) {
 
 if(next_attack != eAttackType.None) {
 	// start to attack.
-	hit_obj_idx = scrHit_create2(id, next_attack, x, y, z, dir, side);	
+	hit_obj_idx = scrHit_create2(id, next_attack, x, y, z, dir, side);
+	recovery_frame =
+		  scrAttack_get(next_attack, eAttackProperties.StartupFrame)
+		+ scrAttack_get(next_attack, eAttackProperties.ActiveFrame)
+		+ scrAttack_get(next_attack, eAttackProperties.RecoveryFrame)
 }
