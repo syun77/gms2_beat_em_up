@@ -6,18 +6,18 @@ if(instance_exists(hit_obj_idx) == false) {
 }
 
 timer++;
-var prev_state   = state;
-var prev_hit_obj = hit_obj_idx;
+var prev_state = state;
+var next_attack = eAttackType.None;
 
 switch(state) {
 case eState.Standby:
 	if(is_punch) {
 		state = eState.Punch;
-		hit_obj_idx = scrHit_create2(id, eAttackType.Punch, x, y, z, dir, side);
+		next_attack = eAttackType.Punch;
 	}
 	else if(is_kick) {
 		state = eState.Kick;
-		hit_obj_idx = scrHit_create2(id, eAttackType.Kick, x, y, z, dir, side);
+		next_attack = eAttackType.Kick;
 	}
 	break;
 	
@@ -27,7 +27,7 @@ case eState.Punch:
 	}
 	else if(is_punch) {
 		state = eState.Punch2;
-		hit_obj_idx = scrHit_create2(id, eAttackType.Punch, x, y, z, dir, side);
+		next_attack = eAttackType.Punch;
 	}
 	break;
 	
@@ -37,7 +37,7 @@ case eState.Punch2:
 	}
 	else if(is_punch) {
 		state = eState.Uppercut;
-		hit_obj_idx = scrHit_create2(id, eAttackType.Uppercut, x, y, z, dir, side);
+		next_attack = eAttackType.Uppercut;
 	}
 	break;
 	
@@ -81,15 +81,18 @@ case eState.Dead:
 // Check to change state.
 if(state != prev_state) {
 	timer = 0;
-}
-
-if(hit_obj_idx != prev_hit_obj) {
 	// change hit-box
-	if(instance_exists(prev_hit_obj)) {
+	if(instance_exists(hit_obj_idx)) {
 		// hit-box exists
-		with(prev_hit_obj) {
+		with(hit_obj_idx) {
 			// kill hit-box
 			instance_destroy();
 		}
+		hit_obj_idx = noone;
 	}
+}
+
+if(next_attack != eAttackType.None) {
+	// start to attack.
+	hit_obj_idx = scrHit_create2(id, next_attack, x, y, z, dir, side);	
 }
