@@ -6,6 +6,8 @@
 
 #macro HIT_RANGE_Z (16)
 
+#macro GRASP_OFFSET_X (48)
+
 // timer
 #macro KNOCK_DOWN_TIME (60)
 #macro KNOCK_DOWN_RECOVERY_TIME (40)
@@ -23,6 +25,8 @@ enum eState {
 	Knockdown,
 	Launch,
 	Throw,
+	Grasping,
+	Grasped,
 	
 	Dead,
 };
@@ -58,3 +62,9 @@ for(var i = 0; i < MAX_HIT_OBJECTS; i++) {
 // request damage.
 request_damage_type = eAttackType.None;
 request_damage_dir  = eDir.Left;
+
+// request to grasp fighter.
+request_grasping = false;
+request_grasped_fighter = noone;
+request_grasped = false;
+request_free_to_grasped_fighter = false;

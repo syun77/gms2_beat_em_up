@@ -38,6 +38,14 @@ case eState.Throw:
 case eState.Dead:
 	image_no = 6;
 	break;
+	
+case eState.Grasping:
+	image_no = 7;
+	break;
+	
+case eState.Grasped:
+	image_no = 8;
+	break;
 }
 
 if(state == eState.Dead) {

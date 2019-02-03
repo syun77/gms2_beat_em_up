@@ -4,6 +4,12 @@ if(request_damage_type == eAttackType.None) {
 	return;
 }
 
+request_grasping = false;
+if(request_grasped_fighter != noone) {
+	request_grasped_fighter.request_free_to_grasped_fighter = true;
+	request_grasped_fighter = noone;
+}
+
 var type = request_damage_type;
 request_damage_type = eAttackType.None;
 

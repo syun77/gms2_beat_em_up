@@ -9,9 +9,21 @@ timer++;
 var prev_state = state;
 var next_attack = eAttackType.None;
 
+if(request_grasped) {
+	// start to be grasped.
+	request_grasped = false;
+	state = eState.Grasped;
+}
+
 switch(state) {
 case eState.Standby:
-	if(is_punch) {
+	// check to grasp fighter.
+	if(request_grasping) {
+		// start to grasp the fighter.
+		//request_grasping = false;
+		state = eState.Grasping;
+	}
+	else if(is_punch) {
 		state = eState.Punch;
 		next_attack = eAttackType.Punch;
 	}
@@ -73,6 +85,21 @@ case eState.Dead:
 	if(timer > 40) {
 		// kill myself.
 		instance_destroy();
+	}
+	break;
+	
+case eState.Grasping:
+	if(request_grasping == false) {
+		request_grasping = false;
+		request_grasped_fighter = noone;
+		state = eState.Standby;
+	}
+	break;
+	
+case eState.Grasped:
+	if(request_free_to_grasped_fighter) {
+		request_free_to_grasped_fighter = false;
+		state = eState.Standby;
 	}
 	break;
 }
