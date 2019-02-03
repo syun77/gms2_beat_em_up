@@ -153,6 +153,25 @@
             }
         },
         {
+            "Key": "2afacfd2-9261-463c-9753-1b7c116c760a",
+            "Value": {
+                "id": "07668f16-9939-4e2d-9ee4-4dd1832e8e2b",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/sprKnee\/sprKnee.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "2bf36db2-0bd2-4ce1-9fcc-3c1e070cd229",
             "Value": {
                 "id": "798b3d20-8a51-4d59-8d38-26af58b4e40e",
