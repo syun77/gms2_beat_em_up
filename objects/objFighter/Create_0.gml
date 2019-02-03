@@ -6,7 +6,7 @@
 
 #macro HIT_RANGE_Z (16)
 
-#macro GRASP_OFFSET_X (48)
+#macro GRASP_OFFSET_X (36)
 
 // timer
 #macro KNOCK_DOWN_TIME (60)
@@ -26,7 +26,11 @@ enum eState {
 	Launch,
 	Throw,
 	Grasping,
+	GraspingKnee,
+	GraspingKnee2,
+	GraspingKnee3,
 	Grasped,
+	GraspedDamage,
 	
 	Dead,
 };

@@ -43,8 +43,19 @@ case eState.Grasping:
 	image_no = 7;
 	break;
 	
+case eState.GraspingKnee:
+case eState.GraspingKnee2:
+case eState.GraspingKnee3:
+	image_no = 9;
+	break;
+	
 case eState.Grasped:
 	image_no = 8;
+	break;
+	
+case eState.GraspedDamage:
+	image_no = 8;
+	ofs_x = (30-timer) / 5.0 * random_range(-1, 1);
 	break;
 }
 

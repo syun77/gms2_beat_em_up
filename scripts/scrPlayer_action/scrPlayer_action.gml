@@ -88,11 +88,35 @@ case eState.Dead:
 	}
 	break;
 	
-case eState.Grasping:
-	if(request_grasping == false) {
+case eState.GraspingKnee:
+	if(timer < recovery_frame) {
+		break;
+	}
+	if(is_punch) {
+		state = eState.GraspingKnee2;
+		next_attack = eAttackType.Knee;
+	}
+	break;
+case eState.GraspingKnee2:
+	if(timer < recovery_frame) {
+		break;
+	}
+	if(is_punch) {
+		state = eState.GraspingKnee3;
+		next_attack = eAttackType.Knee2;
+	}
+	break;
+case eState.GraspingKnee3:
+	if(timer > recovery_frame) {
+		// end grasping.
 		request_grasping = false;
-		request_grasped_fighter = noone;
-		state = eState.Standby;
+	}
+	break;
+	
+case eState.Grasping:
+	if(is_punch) {
+		state = eState.GraspingKnee;
+		next_attack = eAttackType.Knee;
 	}
 	break;
 	
@@ -102,8 +126,26 @@ case eState.Grasped:
 		state = eState.Standby;
 	}
 	break;
+	
+case eState.GraspedDamage:
+	if(timer > 30) {
+		state = eState.Grasped;
+	}
+	break;
 }
 
+// Grasping.
+switch(state) {
+case eState.Grasping:
+case eState.GraspingKnee:
+case eState.GraspingKnee2:
+case eState.GraspingKnee3:
+	if(request_grasping == false) {
+		request_grasping = false;
+		request_grasped_fighter = noone;
+		state = eState.Standby;
+	}
+}
 
 // Check to change state.
 if(state != prev_state) {

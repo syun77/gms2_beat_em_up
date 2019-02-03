@@ -14,7 +14,16 @@ var type = request_damage_type;
 request_damage_type = eAttackType.None;
 
 // start to damage.
-state = eState.Damage;
+switch(state) {
+case eState.Grasped:
+case eState.GraspedDamage:
+	state = eState.GraspedDamage;
+	break;
+	
+default:
+	state = eState.Damage;
+	break;
+}
 timer = 0;
 if(request_damage_dir == eDir.Left) {
 	dir = eDir.Right;

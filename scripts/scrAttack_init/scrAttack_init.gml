@@ -5,6 +5,9 @@ enum eAttackType {
 	Kick,     // 2
 	Uppercut, // 3
 	
+	Knee,     // 4
+	Knee2,    // 5
+	
 	Length,
 };
 
@@ -22,6 +25,9 @@ enum eAttackProperties {
 global.attack_data[eAttackType.Length, eAttackProperties.Length] = noone;
 
 //            type                  0             1  2   3   4   5
-scrAttack_add(eAttackType.Punch,    sprPunch,     3, 0, 10, 10,  0);
-scrAttack_add(eAttackType.Kick,     sprKick,      5, 0, 20, 30,  5);
-scrAttack_add(eAttackType.Uppercut, sprUppercut, 10, 0, 20, 30, 10);
+scrAttack_add(eAttackType.Punch,    sprPunch,     3, 0, 10, 10,  0); // 1
+scrAttack_add(eAttackType.Kick,     sprKick,      5, 0, 20, 30,  5); // 2
+scrAttack_add(eAttackType.Uppercut, sprUppercut, 10, 0, 20, 30, 10); // 3
+
+scrAttack_add(eAttackType.Knee,     sprKnee,      3, 0, 10, 10,  0); // 4
+scrAttack_add(eAttackType.Knee2,    sprKnee,      7, 0, 15, 22,  8); // 5
