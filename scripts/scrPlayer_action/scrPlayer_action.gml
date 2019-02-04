@@ -140,6 +140,24 @@ case eState.Grasping:
 case eState.GraspingKnee:
 case eState.GraspingKnee2:
 case eState.GraspingKnee3:
+	// Check to exist.
+	if(instance_exists(request_grasped_fighter) == false) {
+		// Not grasping
+		request_grasping = false;
+	}
+	else if(request_grasped_fighter.request_grasped == false) {
+		// Check grasping.
+		switch(request_grasped_fighter.state) {
+		case eState.Grasped:
+		case eState.GraspedDamage:
+			break;
+			
+		default:
+			// Not grasping.
+			request_grasping = false;
+			break;
+		}
+	}
 	if(request_grasping == false) {
 		request_grasping = false;
 		request_grasped_fighter = noone;

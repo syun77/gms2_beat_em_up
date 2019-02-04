@@ -22,9 +22,14 @@ case eState.Throw:
 	vspeed += 0.3;
 	if(y > 0) {
 		y = 0;
-		speed = 0;
-		timer = 0;
-		state = eState.Knockdown;
+		if(speed > 3) {
+			vspeed *= -0.3;
+		}
+		else {
+			speed = 0;
+			timer = 0;
+			state = eState.Knockdown;
+		}
 	}
 	break;
 	

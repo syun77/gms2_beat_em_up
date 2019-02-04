@@ -22,6 +22,7 @@ if(state != eState.Standby) {
 switch(other.state) {
 case eState.Dead:
 case eState.Knockdown:
+case eState.Launch:
 case eState.Throw:
 	// Can't grasp fighter.
 	return;

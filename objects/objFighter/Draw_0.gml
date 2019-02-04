@@ -45,6 +45,11 @@ case eState.Grasping:
 	
 case eState.GraspingKnee:
 case eState.GraspingKnee2:
+	image_no = 7;
+	if(timer < 15) {
+		image_no = 9;
+	}
+	break;
 case eState.GraspingKnee3:
 	image_no = 9;
 	break;
