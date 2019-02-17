@@ -1,5 +1,7 @@
-var is_punch = argument0;
-var is_kick  = argument1;
+var is_punch    = argument0;
+var is_kick     = argument1;
+var is_forward  = argument2;
+var is_backward = argument3;
 
 if(instance_exists(hit_obj_idx) == false) {
 	hit_obj_idx = noone;

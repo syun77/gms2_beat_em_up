@@ -150,4 +150,8 @@ if(cnt == 60) {
 	cnt = 0;
 }
 
-scrPlayer_action(is_punch, is_kick);
+var is_forward  = false;
+var is_backward = false;
+
+
+scrPlayer_action(is_punch, is_kick, is_forward, is_backward);
